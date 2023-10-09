@@ -26,6 +26,7 @@ export const MonologueComponent = ({ monologue, monologueIdx, highlights }) => {
         }
       }
     }
+    return false;
   }
 
   return (
