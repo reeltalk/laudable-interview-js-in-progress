@@ -15,7 +15,17 @@ export const TranscriptComponent = ({ transcript, highlights }) => {
 
 export const MonologueComponent = ({ monologue, monologueIdx, highlights }) => {
   function isHighlighted(monologueIdx, wordIdx, highlights) {
-    return false;
+    for (let highlight of highlights) {
+      const startMonologue = highlight.startMonologue;
+      const endMonologue = highlight.endMonologue;
+      if (monologueIdx >= startMonologue && monologueIdx <= endMonologue) {
+        const startWord = highlight.startWord;
+        const endWord = highlight.endWord;
+        if (wordIdx >= startWord && wordIdx <= endWord) {
+          return true;
+        }
+      }
+    }
   }
 
   return (
